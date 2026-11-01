@@ -1,0 +1,28 @@
+{
+  "api": 2,
+  "id": "file-viewer",
+  "name": "File Viewer",
+  "version": "0.1.0",
+  "publisher": "V2Mac",
+  "description": "Open a PDF or Office file you don't trust in a mini VM instead of on your Mac. Macros and links stay off. A successful attack could still read that mini VM's Shared folder and send it through its exit, so keep only the files you want to view there.",
+  "icon": "icon.svg",
+  "display": "gui",
+  "packages": [
+    "evince",
+    "libreoffice-gtk3",
+    "libreoffice-writer",
+    "libreoffice-calc",
+    "libreoffice-impress",
+    "fonts-noto-core"
+  ],
+  "launch": {
+    "cmd": [
+      "/usr/local/bin/start.sh"
+    ]
+  },
+  "permissions": [
+    "shared"
+  ],
+  "changelog": "First release: Evince and LibreOffice from Debian, updated by Debian, read-only with macros, active content and link updates locked off.",
+  "securityNotes": "Shared is how files get in, and it is read-write: a successful exploit could change or read what is in this mini VM's Shared folder and send it through the exit. It can't reach the Mac's other files or its IP. The profile is kept in memory and is gone when the app closes."
+}
